@@ -1,0 +1,10 @@
+
+ @import "../node_modules/ng-zorro-antd/style/index.min.css";  /*Import base styles */
+ @import "../node_modules/ng-zorro-antd/button/style/index.min.css";  /* Import one component's styles */
+
+/*@import "../node_modules/ng-zorro-antd/style/entry.less"; /* Import base styles */
+/*@import "../node_modules/ng-zorro-antd/button/style/entry.less";  /* Import one component's styles */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

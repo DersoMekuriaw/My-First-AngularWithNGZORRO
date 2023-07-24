@@ -1,0 +1,80 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Nolawi @Perago Systems</h1>
+      </a>
+    </div>
+    
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <a routerLink="/home"> 
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard"> 
+      </li>
+    </a>
+      <li nz-submenu nzOpen nzTitle="Registration" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a href="/registration">New Department</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter>
+            <a href="/adduser">New User</a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="View Departments" nzIcon="more">
+        <ul>
+
+          <li nz-menu-item nzMatchRouter>
+            <a href="/tableview">Table View</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter>
+            <a href="/linetreeview">Line Tree View</a>
+          </li>
+          
+        </ul>
+      </li>
+      <a href="https://www.freecodecamp.org/news/get-started-with-tailwindcss/" target="_blank"> 
+        <li nz-submenu nzOpen nzTitle="TailWind CSS" nzIcon="dashboard"> 
+      </li>
+    </a>
+    <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" target="_blank"> 
+      <li nz-submenu nzOpen nzTitle="Git Get Started" nzIcon="dashboard"> 
+    </li>
+  </a>
+  <a href="https://www.atlassian.com/git/glossary" target="_blank"> 
+    <li nz-submenu nzOpen nzTitle="Git Get Started 2" nzIcon="dashboard"> 
+  </li>
+</a>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+        <span><b style="font-size: 20px;"><i style="color: red;">P</i>erago Information Systems</b></span>
+      </div>
+    </nz-header>
+
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+
+  </nz-layout>
+</nz-layout>

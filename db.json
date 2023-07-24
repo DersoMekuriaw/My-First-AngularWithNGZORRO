@@ -1,0 +1,60 @@
+{
+  "departments": [
+    {
+      "id": 1,
+      "deptId": "985ae729-9a46-0ab1-2f55-3ebc4a859014m",
+      "deptName": "CEO",
+      "deptDesc": "Chief Executive Officer",
+      "managerId": "null"
+    },
+    {
+      "id": 5,
+      "deptId": "dc96fe68-e30e-0066-ff0f-d86ccc8cc878",
+      "deptName": "CFO",
+      "deptDesc": "Chief Financial Officer",
+      "managerId": "985ae729-9a46-0ab1-2f55-3ebc4a859014m"
+    },
+    {
+      "id": 6,
+      "deptId": "2af52f26-4722-f61c-7217-61ac46395dcd",
+      "deptName": "CMO",
+      "deptDesc": "Chief Marketing Officer",
+      "managerId": "985ae729-9a46-0ab1-2f55-3ebc4a859014m"
+    },
+    {
+      "deptId": "6ccad341-66a6-953b-d979-9cc0cd4df5d6",
+      "deptName": "CTO",
+      "deptDesc": "Chief Technology Officer",
+      "managerId": "985ae729-9a46-0ab1-2f55-3ebc4a859014m",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "deptId": "4afbff84-27e8-53e7-80d4-cb69eb758a92",
+      "deptName": "FAA",
+      "deptDesc": "Financial Analyst ",
+      "managerId": "dc96fe68-e30e-0066-ff0f-d86ccc8cc878"
+    },
+    {
+      "deptId": "d6c36c88-6ce2-5ba7-167c-a51e27d3b852",
+      "deptName": "Auditors",
+      "deptDesc": "Company Auditors",
+      "managerId": "dc96fe68-e30e-0066-ff0f-d86ccc8cc878",
+      "id": 9
+    },
+    {
+      "deptId": "4e355080-844d-f3ed-e034-cf2e7157f7c3",
+      "deptName": "X",
+      "deptDesc": "X Department",
+      "managerId": "2af52f26-4722-f61c-7217-61ac46395dcd",
+      "id": 10
+    },
+    {
+      "deptId": "079cff2f-bae6-0d22-6779-0ab69767bb66",
+      "deptName": "Y",
+      "deptDesc": "Y Department",
+      "managerId": "2af52f26-4722-f61c-7217-61ac46395dcd",
+      "id": 11
+    }
+  ]
+}

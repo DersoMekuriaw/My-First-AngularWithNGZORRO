@@ -1,0 +1,29 @@
+[nz-form] {
+  max-width: 600px;
+}
+
+.phone-select {
+  width: 70px;
+}
+
+.register-are {
+  margin-bottom: 8px;
+}
+
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  .card{
+    max-width: 1000px;
+    margin: 10px;
+  }
+
+  nz-select {
+    width: 180px;
+  }
+ 
+  input{
+    width: 300px;
+  }
