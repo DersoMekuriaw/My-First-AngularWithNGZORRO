@@ -1,0 +1,36 @@
+<nz-card
+  class="card"
+  style="margin-left: 15%; margin-right: 15%; align-content: center"
+  nzTitle="Tree View of Organizational Structure"
+>
+  <div style="margin-left: 20%">
+    <mat-tree
+      id="centering"
+      [dataSource]="dataSource"
+      [treeControl]="treeControl"
+    >
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <b><button mat-icon-button disabled></button></b>
+        <p id="centering">{{ node.name }}</p>
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node
+        *matTreeNodeDef="let node; when: hasChild"
+        matTreeNodePadding
+      >
+        <button
+          mat-icon-button 
+          matTreeNodeToggle
+          [attr.aria-label]="'Toggle ' + node.name"
+        >
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
+          </mat-icon>
+        </button>
+        <p id="centering">{{ node.name }}</p>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+</nz-card>

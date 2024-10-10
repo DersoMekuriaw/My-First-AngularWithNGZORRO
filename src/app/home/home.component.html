@@ -1,0 +1,58 @@
+  <div nz-row>
+  <div nz-col nzSpan="11">
+    <nz-divider nzText="Tree view Structure"></nz-divider>
+    <div style="margin-left: 20%; display: inline-block;">
+    Show Leaf Icon:
+    <nz-switch [(ngModel)]="showLeafIcon"></nz-switch>
+    <nz-tree-view  [nzTreeControl]="treeControl" [nzDataSource]="dataSource">
+      <nz-tree-node  *nzTreeNodeDef="let node" nzTreeNodeIndentLine>
+        <nz-tree-node-toggle nzTreeNodeNoopToggle *ngIf="showLeafIcon">
+          <span nz-icon nzType="file" nzTheme="outline"></span>
+        </nz-tree-node-toggle>
+        <nz-tree-node-option  style="color: red;">
+          <b>{{ node.name }}</b>
+        </nz-tree-node-option>
+      </nz-tree-node>
+
+      <nz-tree-node *nzTreeNodeDef="let node; when: hasChild" nzTreeNodeIndentLine>
+        <nz-tree-node-toggle>
+          <span
+            nz-icon
+            [nzType]="treeControl.isExpanded(node) ? 'minus-square' : 'plus-square'"
+            nzTheme="outline"
+          ></span>
+        </nz-tree-node-toggle>
+        <nz-tree-node-option>
+          <b>{{ node.name }}</b>
+        </nz-tree-node-option>
+      </nz-tree-node>
+    </nz-tree-view>
+    </div>
+  </div>
+
+  <div nz-col nzSpan="12">
+    <nz-divider nzText="About the Organization"></nz-divider>
+  <p style="font-family: Cambria; text-align: justify; font-size: 16px;">        
+                Perago Systems is a technology company that focuses on developing and implementing 
+                electronic government and B2B commerce solutions towards the provision of various 
+                online transactional services. Perago provides strong technical support and knowledge 
+                transfer to sustain the competitive advantages gained by customers from their ICT 
+                investments.  <a href="http://peragosystems.com/home" target="_blank"> Click here to visit our website.</a>
+   </p>
+
+   <br>
+   <nz-divider nzText="Contact Us"></nz-divider>
+   <p style="font-family: Cambria; text-align: justify; font-size: 16px;">        
+    <label style="margin-left: 50px;">
+        Email: info@peragosystems.com <br>
+      </label>
+    <label style="margin-left:50px;">
+        Tel: +251 114 701 998 | +251 911 231 622 <br>
+        </label>
+    <label style="margin-left: 50px;">
+        Po.Box: 139 Addis Ababa, Ethiopia<br>
+  </label>
+    </p>
+
+  </div>
+</div>

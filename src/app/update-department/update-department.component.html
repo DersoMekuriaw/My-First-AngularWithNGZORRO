@@ -1,0 +1,38 @@
+<nz-card class="card" nzTitle="Update Department Form">
+    <form nz-form [formGroup]="updateform" (ngSubmit)="submitForm()">
+  
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="nameField">Department Name</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input new department name">
+          <input nz-input nzRequired formControlName="deptName" type="" id="deptName" >
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="descField">Description</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input description about the department">
+          <input nz-input nzRequired formControlName="deptDesc" type="" id="deptDesc" >
+        </nz-form-control>
+      </nz-form-item >
+  
+      <nz-form-item *ngIf="isOneRoot">
+        <nz-form-label [nzSpan]="10" nzFor="managerField">Managed By</nz-form-label>
+        <nz-form-control [nzSm]="12" nzErrorTip="Please select the managing department">
+          <nz-select formControlName="managerId" nzShowSearch nzAllowClear nzPlaceHolder="Select a manager">
+            <nz-option *ngFor="let department of departments" nzLabel={{department.deptName}} nzValue={{department.deptId}}></nz-option>
+            <nz-option nzLabel="Make it Root" nzValue="null"></nz-option>
+          </nz-select>
+        </nz-form-control> 
+      </nz-form-item>
+    
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <nz-space>
+          <button *nzSpaceItem nz-button name="Submit" nzType="primary">Update</button>
+          <button *nzSpaceItem routerLink="/tableview"  nz-button mat-dialog-close style="background-color: red;" name="clear">Close</button> 
+        </nz-space>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  
+  </nz-card>

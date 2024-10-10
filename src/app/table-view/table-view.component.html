@@ -1,0 +1,85 @@
+<nz-divider nzText="Current Departments of Perago Information Systems"></nz-divider>
+  <div style="border-radius: 5px; border-color: rgb(119, 60, 83);">
+    <div class="container">
+      <div nz-space nzAlign="start" class="space-align-block">
+    <nz-space nzAlign="start">
+      <button class="addbtn" *nzSpaceItem nz-button name="Submit" nzType="primary"><a routerLink="/registration">Add New </a></button>
+    </nz-space>
+  </div>
+  <div nz-space nzAlign="end" style="width: 30%;" class="space-align-block">
+    <nz-input-group nzAlign="end" [nzSuffix]="suffixIconSearch">
+      <input class="inputFeild" (keyup)="applyFilter($event)" nz-input placeholder="Ex: CEO" #input />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+    </div>
+  </div>
+
+  <table class="table" mat-table matSort [dataSource]="dataSource">
+      <!--matSort mat-sort-header-->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>ID.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="deptName">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Department Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.deptName }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="deptDesc">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Description
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.deptDesc }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="managerId">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>
+          Managing Department
+        </th>
+        <td mat-cell *matCellDef="let element">{{ this.getParentName(element.managerId) }}</td>
+      </ng-container>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No department detail matching the filter "{{input.value}}"</td>
+      </tr>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+
+          <a routerLink="" (click)="viewDetail(element.id)" style="color: blue">
+            <mat-icon class="mat-18" matTooltip=" View Row Detail">more</mat-icon>
+          </a>
+
+          <a routerLink="" (click)="updateDepartment(element.id)"  style="color: green">
+            <mat-icon class="mat-18" matTooltip=" Update Row Data">edit</mat-icon>
+          </a>
+
+          <a routerLink="" (click)="deleteDepartment(element.id)" style="color:red">
+            <mat-icon class="mat-18" matTooltip=" Delete Row Data">delete</mat-icon>
+          </a>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+
+    <mat-paginator style="color: black;" class="table"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

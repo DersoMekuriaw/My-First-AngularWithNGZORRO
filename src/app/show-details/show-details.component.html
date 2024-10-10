@@ -1,0 +1,27 @@
+<nz-card class="card" nzTitle="Showing {{selectedDeptName}} Department Details ">
+    <form nz-form >
+  
+      <div style="margin-left: 25px;">
+        <p>Department Name: <b>{{selectedDeptName}}</b></p>
+        <p>Description: <b>{{selectedDeptDesc}}</b></p>
+        <p>Managing Department: <b>{{selectedParentName}}</b></p>
+        <p>Managed Departments: 
+            <label *ngFor="let child of children"> <b>{{child}}</b>,</label></p>
+      </div>
+  
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button
+            routerLink="/tableview"
+            nz-button
+            mat-dialog-close
+            style="background-color: red"
+            name="clear"
+          >
+            Close
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
+  

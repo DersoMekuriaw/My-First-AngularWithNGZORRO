@@ -1,0 +1,59 @@
+<nz-card class="card" nzTitle="Deleting Department">
+  <form nz-form (ngSubmit)="submitForm()">
+
+    <div style="margin-left: 25px;" *ngIf="isLeaf">
+      <h1 style="color: red">
+        <b><mat-icon>warning</mat-icon>   Are you sure do you want to delete department <i style="color: black;">{{ selectedDeptName }}</i></b
+        >
+      </h1>
+    </div>
+
+    <div style="margin-left: 25px;" *ngIf="!isLeaf">
+
+        <h1>
+            <b style="color: red">
+              <mat-icon>warning</mat-icon>   Unable to delete parent departments.
+            </b>
+          </h1>
+
+      <h2>
+        <b>
+          There are departments under<i style="color: black"> "{{selectedDeptName}}" </i> management:
+        </b>
+      </h2>
+
+        <ol *ngFor="let child of children" ><b style="margin-left: 20%"> {{ child }} </b></ol>
+
+      <h3>
+        <b>So, if you wants to delete <i style="color: black"> {{ selectedDeptName }} </i>
+        <br><p style="margin-left: 20px;">1. either you must delete the children first</p>
+            <p style="margin-left: 20px;">2. or since leaves are easily deletable so you assign it as a leaf first. </p>
+      </b>
+      </h3>
+
+    </div>
+
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+
+        <nz-space>
+
+          <button *nzSpaceItem
+          routerLink="/tableview"
+          nz-button
+          mat-dialog-close
+          style="background-color: red"
+          name="clear"
+        >
+          Close
+        </button>
+
+        <button  *ngIf="isLeaf" nz-button name="Submit" nzType="primary">
+          Delete
+        </button>
+        </nz-space>
+
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-card>
